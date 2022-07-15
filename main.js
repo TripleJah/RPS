@@ -21,12 +21,18 @@ function playRound() {
 
     if (playerChoice == compChoice) {
         alert('It\'s a tie');
-    } else if (playerChoice == 'rock' && compChoice == 'scissors' ||
-        playerChoice == 'paper' && compChoice == 'rock' ||
-        playerChoice == 'scissors' && compChoice == 'paper') {
-        alert('You win!');
-    } else {
-        alert('you lose!');
+    } else if (playerChoice == 'rock' && compChoice == 'scissors') {
+        alert('You win! Rock beats Scissors!');
+    } else if (playerChoice == 'paper' && compChoice == 'rock') {
+        alert('You win! Paper beats Rock');
+    } else if (playerChoice == 'scissors' && compChoice == 'paper') {
+        alert('You win! Scissors beats Paper');
+    } else if (playerChoice == 'rock' && compChoice == 'paper') {
+        alert('You lose! Paper beats Rock!');
+    } else if (playerChoice == 'paper' && compChoice == 'scissors') {
+        alert('You lose! Scissors beats Paper!');
+    } else if (playerChoice == 'scissors' && compChoice == 'rock') {
+        alert('You lose! Rock beats Scissors!');
     }
 }
 
