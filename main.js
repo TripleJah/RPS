@@ -1,4 +1,7 @@
 const moves = ['rock', 'paper', 'scissors'];
+let playerWins = 0;
+let compWins = 0;
+let ties = 0;
 
 function compMove() {
     //randomly selects comp move
@@ -21,18 +24,25 @@ function playRound() {
 
     if (playerChoice == compChoice) {
         alert('It\'s a tie');
+        return ties += 1;
     } else if (playerChoice == 'rock' && compChoice == 'scissors') {
         alert('You win! Rock beats Scissors!');
+        return playerWins += 1;
     } else if (playerChoice == 'paper' && compChoice == 'rock') {
         alert('You win! Paper beats Rock');
+        return playerWins += 1;
     } else if (playerChoice == 'scissors' && compChoice == 'paper') {
         alert('You win! Scissors beats Paper');
+        return playerWins += 1;
     } else if (playerChoice == 'rock' && compChoice == 'paper') {
         alert('You lose! Paper beats Rock!');
+        return compWins += 1;
     } else if (playerChoice == 'paper' && compChoice == 'scissors') {
         alert('You lose! Scissors beats Paper!');
+        return compWins += 1;
     } else if (playerChoice == 'scissors' && compChoice == 'rock') {
         alert('You lose! Rock beats Scissors!');
+        return compWins += 1;
     }
 }
 
@@ -40,7 +50,25 @@ function game() {
     //recieves Round winner
     //keeps tally of wins/losses
     //best of 5 rounds, declares victor after three wins
+    for (let rounds = 0; rounds < 5; rounds++) {
+        playRound()
+    }
+    console.log('Player Wins: ', playerWins);
+    console.log('Computer Wins: ', compWins);
+    console.log('Ties: ', ties);
+
+    if (playerWins == compWins) {
+        console.log('IT\'S A TIE!');
+    } else if (playerWins > compWins) {
+        console.log('YOU WIN!!!!');
+    } else {
+        console.log('YOU LOSE!');
+    }
 }
+
+game();
+
+
 
 
 
